@@ -5,12 +5,23 @@ import { PizzaMenu } from '@/components/PizzaMenu';
 import { Gallery } from '@/components/Gallery';
 import { Contact } from '@/components/Contacts';
 import { Delivery } from '@/components/Delivery';
+import { client } from '@/sanity/lib/client';
+import { pizzasQuery } from '@/sanity/lib/queries';
 
-export default function Home() {
+export default async function Home() {
+    let pizzas = [];
+    try {
+        if (process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
+            pizzas = await client.fetch(pizzasQuery) || [];
+        }
+    } catch (e) {
+        console.error("Sanity fetch failed:", e);
+    }
+
     return (
         <main className="min-h-screen bg-heydayDark text-white">
             <div
-                className="fixed inset-0 z-0 pointer-events-none brightness-30 contrast-[1.1]"
+                className="fixed inset-0 z-0 pointer-events-none brightness-50 contrast-[1.1]"
                 style={{
                     backgroundImage: "url('/bricks1.jpg')",
                     backgroundSize: '550px',
@@ -53,8 +64,8 @@ export default function Home() {
                         <Image
                             src="/logo.png"
                             alt="Pizzeria Heyday Logo"
-                            width={220}
-                            height={220}
+                            width={300}
+                            height={300}
                             className="drop-shadow-2xl"
                         />
                     </div>
@@ -101,7 +112,7 @@ export default function Home() {
             </section>
 
             {/* Sections */}
-            <PizzaMenu />
+            <PizzaMenu menuItems={pizzas.length > 0 ? pizzas : undefined} />
             <Gallery />
             <Delivery />
             <Contact />

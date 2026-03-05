@@ -59,10 +59,10 @@ export const Navbar = () => {
                             <a
                                 key={link.name}
                                 href={link.href}
-                                className="relative text-[14px] uppercase tracking-[0.25em] font-black text-gray-200 transition-all duration-300 group"
+                                className="relative text-[14px] uppercase tracking-[0.25em] font-bold text-gray-200 transition-all duration-300 group"
                                 onMouseEnter={(e) => {
-                                    e.currentTarget.style.color = "#fff";
-                                    e.currentTarget.style.textShadow = "0 0 10px #9b1b1b, 0 0 20px #9b1b1b, 0 0 40px #ff0000";
+                                    e.currentTarget.style.color = "#f3f3f3ff";
+                                    e.currentTarget.style.textShadow = "0 0 10px #fafafaff, 0 0 20px #000000ff, 0 0 40px #ff0000";
                                 }}
                                 onMouseLeave={(e) => {
                                     e.currentTarget.style.color = "";

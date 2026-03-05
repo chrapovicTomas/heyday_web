@@ -26,7 +26,7 @@ export const Delivery = () => {
                         className="space-y-8"
                     >
                         {/* Car Image */}
-                        <div className="relative h-[400px] lg:h-[650px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10 group">
+                        <div className="relative h-[400px] lg:h-[600px] rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10 group">
                             <Image
                                 src="/car.jpg"
                                 alt="Heyday Donáška"
@@ -48,7 +48,7 @@ export const Delivery = () => {
                         viewport={{ once: true }}
                         className="lg:pt-4"
                     >
-                        <h3 className="text-4xl md:text-5xl font-serif mb-10 text-white leading-tight">Donáška<br />priamo k vám</h3>
+                        <h3 className="text-4xl md:text-5xl font-serif mb-10 text-white leading-tight">Donáška priamo k vám</h3>
 
                         {/* Delivery Zones */}
                         <div className="space-y-3 mb-10">
