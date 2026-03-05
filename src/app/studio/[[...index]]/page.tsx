@@ -6,10 +6,15 @@
  * You can learn more about the next-sanity package here:
  * https://github.com/sanity-io/next-sanity
  */
+export const dynamic = 'force-static';
 
 import { NextStudio } from 'next-sanity/studio'
 import config from '../../../../sanity.config'
 
 export default function StudioPage() {
     return <NextStudio config={config} />
+}
+
+export function generateStaticParams() {
+    return [{ index: [] }];
 }
